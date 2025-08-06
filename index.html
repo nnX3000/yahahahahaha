@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Selamat Ulang Tahun!</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 3em;
+      color: #d43b88;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+    p {
+      font-size: 1.5em;
+      color: #333;
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff69b4;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎂 Selamat Ulang Tahun! 🎉</h1>
+  <h2>Semoga sehat selalu, panjang umur, sukses dan bahagia setiap hari 🎁</h2>
+  <h2>Jangan lupa bersyukur dan tetap semangat! 🥳</h2>
+  <p>terimaksih telah hadir di dunia ini💌</p>
+  
+  <button onclick="playMusic()">Mainkan Lagu</button>
+
+  <audio id="birthdaySong">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio HTML.
+  </audio>
+
+  <script>
+    function playMusic() {
+      document.getElementById("birthdaySong").play();
+    }
+  </script>
+
+</body>
+</html>
