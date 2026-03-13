@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>astagfirullah</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>loading...</title>
 
 <style>
 
@@ -63,10 +62,17 @@ background:white;
 padding:30px;
 border-radius:20px;
 text-align:center;
+
+width:90%;
+max-width:400px;
+
+min-height:300px;
 }
 
 .popup-content img{
-width:200px;
+width:80%;
+max-width:200px;
+height:auto;
 }
 
 /* gambar utama */
@@ -82,9 +88,9 @@ display:block;
 
 <body>
 
-<h1>Sangat ngefans sama pemilik akun ini?</h1>
+<h1>aduh stalking nih?</h1>
 
-<img class="main-img" src="https://i.pinimg.com/736x/31/b1/b0/31b1b05e548d0a2ad0c4e1bd8c14ddab.jpg">
+<img class="main-img" src="https://i.pinimg.com/736x/2f/6f/04/2f6f04222cbf6315a245556ebbfba565.jpg">
 
 <button id="yesBtn" onclick="yesAnswer()">YES</button>
 <button id="noBtn" onclick="noAnswer()">NO</button>
@@ -93,14 +99,185 @@ display:block;
 
 <div class="popup-content">
 
-<h1>ya.. memang saya teramat keren sih</h1>
-<h2>terimakasih wahai penggemar, btw panggil saya "yang mulia" 😎</h2>
+<div id="page1">
+<h1>hahaha segitu penasarannya kah manizz..</h1>
+<img src="https://i.pinimg.com/736x/6f/e4/80/6fe48080937d7dd0d9c17458652c8869.jpg">
+<br><br>
+<button onclick="nextPage('page1','page2')">Next</button>
+</div>
 
-<img src="https://i.pinimg.com/originals/b1/6a/c5/b16ac50ce6954a9f4ee2728e05fe85c4.gif">
+<div id="page2" style="display:none;">
+<h1>stalking boleh, tapi jangan jatuh cinta</h1>
+<img src="https://i.pinimg.com/736x/31/b1/b0/31b1b05e548d0a2ad0c4e1bd8c14ddab.jpg">
+<br><br>
+<button onclick="nextPage('page2','page3')">Next</button>
+</div>
 
+<div id="page3" style="display:none;">
+<h1>jadi apa yang membuat kisanak penasaran?</h1>
+<img src="https://i.pinimg.com/736x/cf/8f/85/cf8f85e8ca658be9687a3b12df87f534.jpg">
+<br><br>
+<button onclick="nextPage('page3','page4')">Next</button>
+</div>
+
+<div id="page4" style="display:none;">
+<h1>cari apa woii?</h1>
+<img src="https://i.pinimg.com/originals/d1/ad/b3/d1adb3747084e1169073cbdf271a6d24.gif">
+<br><br>
+<button onclick="nextPage('page4','page5')">Next</button>
+</div>
+
+<div id="page5" style="display:none;">
+<h1>jangan cari duit disini ya..</h1>
+<h1>kamu bukan pengemis🥹</h1>
+<img src="https://i.pinimg.com/originals/94/3d/bc/943dbc9e09d64a020a1d048dc3d592f1.gif">
+<br><br>
+<button onclick="nextPage('page5','page6')">Next</button>
+</div>
+
+<div id="page6" style="display:none;">
+<h1>tapi kalau anda ada duit</h1>
+<h1>boleh kok bagi-bagi</h1>
+<img src="https://i.pinimg.com/originals/56/13/2a/56132a28615829b280e6d64b39867d4b.gif">
+<br><br>
+<button onclick="nextPage('page6','page7')">Next</button>
+</div>
+
+<div id="page7" style="display:none;">
+<h1>HAHAHA</h1>
+<h1>bercanda kok</h1>
+<img src="https://i.pinimg.com/originals/a8/2e/20/a82e2018a7851ba8600bef9027f22cac.gif">
+<br><br>
+<button onclick="nextPage('page7','page8')">Next</button>
+</div>
+
+<div id="page8" style="display:none;">
+<h1>kalau serius, ke KUA</h1>
+<img src="https://i.pinimg.com/736x/1e/09/43/1e0943317d595fb529653a108170940f.jpg">
+<br><br>
+<button onclick="nextPage('page8','page9')">Next</button>
+</div>
+
+<div id="page9" style="display:none;">
+<h1>HAHAHA</h1>
+<h1>canda part 2</h1>
+<img src="https://i.pinimg.com/originals/a8/2e/20/a82e2018a7851ba8600bef9027f22cac.gif">
+<br><br>
+<button onclick="nextPage('page9','page10')">Next</button>
+</div>
+
+<div id="page10" style="display:none;">
+<h1>anda saya hipnotis dulu ya..</h1>
+<img src="https://i.pinimg.com/originals/dd/f8/b4/ddf8b4fd4f023dcdbf46cfb52aef1b78.gif">
+<br><br>
+<button onclick="nextPage('page10','page11')">Next</button>
+</div>
+
+<div id="page11" style="display:none;">
+<h1>loading...</h1>
+<img src="https://i.pinimg.com/originals/8f/7a/28/8f7a28e62f8242b264c8a39ba8bea261.gif">
+<br><br>
+<button onclick="nextPage('page11','page12')">Next</button>
+</div>
+
+<div id="page12" style="display:none;">
+<h1>terdeteksi anda kepo</h1>
+<img src="https://i.pinimg.com/736x/47/64/90/4764903573c740bba910f842c3c72d46.jpg">
+<br><br>
+<button onclick="nextPage('page12','page13')">Next</button>
+</div>
+
+<div id="page13" style="display:none;">
+<h1>huh dasar anda ini ya</h1>
+<img src="https://i.pinimg.com/736x/c6/6b/ac/c66bac3ffd4ef47defb55069aa17f630.jpg">
+<br><br>
+<button onclick="nextPage('page13','page14')">Next</button>
+</div>
+
+<div id="page14" style="display:none;">
+<h1>kalau pengen tahu tuh ngasih tahu biar tahu</h1>
+<img src="https://i.pinimg.com/736x/1a/82/8a/1a828a94320042bb3b6b5e64ccebf6fb.jpg">
+<br><br>
+<button onclick="nextPage('page14','page15')">Next</button>
+</div>
+
+<div id="page15" style="display:none;">
+<h1>stalking tidak membuatmu memilikinya</h1>
+<img src="https://i.pinimg.com/736x/76/b6/4a/76b64a463575eb5b1034d9a70a920d68.jpg">
+<br><br>
+<button onclick="nextPage('page15','page16')">Next</button>
+</div>
+
+<div id="page16" style="display:none;">
+<h1>tapi kau masih stalking aja</h1>
+<img src="https://i.pinimg.com/originals/fb/0e/a2/fb0ea2d516788e45e4b3f31436cf3a1d.gif">
+<br><br>
+<button onclick="nextPage('page16','page17')">Next</button>
+</div>
+
+<div id="page17" style="display:none;">
+<h1>HAHAHA bercanda lagi</h1>
+<img src="https://i.pinimg.com/originals/46/ea/79/46ea7962a8ff13b52139e5ef05580d01.gif">
+<br><br>
+<button onclick="nextPage('page17','page18')">Next</button>
+</div>
+
+<div id="page18" style="display:none;">
+<h1>emmm... terlepas dari apapun itu jadilah orang baik ya</h1>
+<img src="https://i.pinimg.com/736x/f1/b9/9b/f1b99bb8fbd3821e69fd8206c59c679a.jpg">
+<br><br>
+<button onclick="nextPage('page18','page19')">Next</button>
+</div>
+
+<div id="page19" style="display:none;">
+<h1>kalau ga bisa jadi orang baik, jadilah orang gila</h1>
+<img src="https://i.pinimg.com/736x/e4/24/ed/e424ed280334f628d2396ba9cf5dc64e.jpg">
+<br><br>
+<button onclick="nextPage('page19','page20')">Next</button>
+</div>
+
+
+<div id="page20" style="display:none;">
+<h1>jadi kalau penasaran apa..</h1>
+<h1>atau ada yang ganjal mau diomongin..</h1>
+<h1>omongin aja</h1>
+<img src="https://i.pinimg.com/736x/9e/ce/80/9ece804f1d7da7f8ed5af326a2f30bcd.jpg">
+<br><br>
+<button onclick="nextPage('page20','page21')">Next</button>
+</div>
+
+<div id="page21" style="display:none;">
+<h1>jadi kek tanya wae lah cuy</h1>
+<img src="https://i.pinimg.com/originals/6d/5b/96/6d5b96c9ec7abef351224a31a6850ad5.gif">
+<br><br>
+<button onclick="nextPage('page21','page22')">Next</button>
+</div>
+
+<div id="page22" style="display:none;">
+<h1>malu bertanya sesat dijalan</h1>
+<img src="https://i.pinimg.com/736x/8f/c0/aa/8fc0aa724af4738fc5c9e7d33e91e16d.jpg">
+<br><br>
+<button onclick="nextPage('page22','page23')">Next</button>
+</div>
+
+<div id="page23" style="display:none;">
+<h1>dah jan kepo-kepo lagi</h1>
+<img src="https://i.pinimg.com/originals/44/ad/d7/44add73502b0eb2f9ae39956ff25705c.gif">
+<br><br>
+<button onclick="nextPage('page23','page24')">Next</button>
+</div>
+
+<div id="page24" style="display:none;">
+<img src="https://i.pinimg.com/originals/d5/9c/4a/d59c4a5e924357787efa2cd7b324f095.gif">
+<br><br>
+<button onclick="keluar()">bye juga</button>
 </div>
 
 </div>
+
+</div>
+
+
 
 <script>
 
@@ -132,10 +309,16 @@ function yesAnswer(){
 document.getElementById("popup").style.display = "flex";
 
 }
+function nextPage(current, next){
+document.getElementById(current).style.display="none";
+document.getElementById(next).style.display="block";
+}
+
+function keluar(){
+window.location.href="https://www.instagram.com/sy.nna_?igsh=Nm9qMjM5bWNzODgz";
+}
 
 </script>
 
 </body>
 </html>
-
-
