@@ -3,320 +3,364 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>loading...</title>
-  
+
 <style>
-
-body{
-text-align:center;
-font-family:Arial;
-margin-top:120px;
-height:100vh;
-overflow:hidden;
+/* 1. RESET & BASE STYLE */
+* {
+    box-sizing: border-box;
 }
 
-/* tombol */
-button{
-padding:15px 30px;
-font-size:20px;
-border:none;
-border-radius:25px;
-cursor:pointer;
-transition:0.2s;
-margin:10px;
-font-weight:bold;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f7f9fa;
+    
+    /* Flexbox: Memastikan konten selalu presisi di tengah layar laptop & HP */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    overflow: hidden;
 }
 
-#yesBtn{
-background:#4CAF50;
-color:black;
+/* 2. CONTAINER UTAMA (Kunci Tampilan agar pas di Laptop/Desktop) */
+.main-container {
+    text-align: center;
+    width: 100%;
+    max-width: 450px; 
+    padding: 20px;
+    position: relative; 
+    min-height: 420px;
 }
 
-#noBtn{
-background:#f44336;
-color:black;
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-/* efek hover */
-
-button:hover{
-transform:scale(1.05);
+/* Tombol */
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin: 10px;
+    font-weight: bold;
 }
 
-/* popup */
-
-#popup{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.5);
-justify-content:center;
-align-items:center;
+#yesBtn {
+    background: #4CAF50;
+    color: black;
 }
 
-.popup-content{
-background:white;
-padding:30px;
-border-radius:20px;
-text-align:center;
-
-width:90%;
-max-width:400px;
-
-min-height:300px;
+#noBtn {
+    background: #f44336;
+    color: black;
+    z-index: 10;
 }
 
-.popup-content img{
-width:80%;
-max-width:200px;
-height:auto;
+button:hover {
+    transform: scale(1.05);
 }
 
-/* gambar utama */
-
-.main-img{
-width:180px;
-margin:20px auto;
-display:block;
+/* Gambar Utama */
+.main-img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 15px;
 }
 
+/* 3. POPUP OVERLAY */
+#popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    padding: 20px;
+}
+
+.popup-content {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 380px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.popup-content img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 12px;
+    margin: 15px 0;
+}
+
+/* 4. MEDIA QUERIES UNTUK LAYAR BESAR */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+    button {
+        font-size: 20px;
+        padding: 15px 35px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<h1>aduh stalking nih?</h1>
+<!-- HALAMAN UTAMA -->
+<div class="main-container" id="gameArea">
 
-<img class="main-img" src="https://i.pinimg.com/736x/2f/6f/04/2f6f04222cbf6315a245556ebbfba565.jpg">
+    <h1>aduh ada yg stalking nih?</h1>
 
-<button id="yesBtn" onclick="yesAnswer()">YES</button>
-<button id="noBtn" onclick="noAnswer()">NO</button>
+    <img class="main-img" src="img1-ciekepo.jpeg">
 
+    <div class="btn-group">
+        <button id="yesBtn" onclick="yesAnswer()">YES</button>
+        <button id="noBtn" onclick="noAnswer()">NO</button>
+    </div>
+
+</div>
+
+<!-- AREA POPUP JALUR CERITA -->
 <div id="popup">
+    <div class="popup-content">
+        <div id="page1">
+            <h1>HAHAHA segitu penasaran kah maniez~</h1>
+            <img src="2hymaniez.jpeg">
+            <br><br>
+            <button onclick="nextPage('page1','page2')">emm</button>
+        </div>
 
-<div class="popup-content">
+        <div id="page2" style="display:none;">
+            <h1>stalking boleh, tapi jangan jatuh cinta</h1>
+            <img src="3merasakeren.jpeg">
+            <br><br>
+            <button onclick="nextPage('page2','page3')">kelaz</button>
+        </div>
 
-<div id="page1">
-<h1>hahaha segitu penasarannya kah manizz..</h1>
-<img src="https://i.pinimg.com/736x/6f/e4/80/6fe48080937d7dd0d9c17458652c8869.jpg">
-<br><br>
-<button onclick="nextPage('page1','page2')">Next</button>
+        <div id="page3" style="display:none;">
+            <h1>jadi -- </h1>
+            <h1>apa yang membuat kisanak penasaran?</h1>
+            <img src="4berpikirlogika.jpeg">
+            <br><br>
+            <button onclick="nextPage('page3','page4')">???</button>
+        </div>
+
+        <div id="page4" style="display:none;">
+            <h1>cari apa Oi</h1>
+            <img src="5menunggu.gif">
+            <br><br>
+            <button onclick="nextPage('page4','page5')">hehe</button>
+        </div>
+
+        <div id="page5" style="display:none;">
+            <h1>jan cari duit disini ya</h1>
+            <h1>kamu bukan pengemis🥹</h1>
+            <img src="6pengemis.gif">
+            <br><br>
+            <button onclick="nextPage('page5','page6')">eh</button>
+        </div>
+
+        <div id="page6" style="display:none;">
+            <h1>tapi kalau ada duit</h1>
+            <h1>boleh kok bagi ke saya hehe</h1>
+            <img src="7ehehehe.gif">
+            <br><br>
+            <button onclick="nextPage('page6','page7')">boleh-boleh</button>
+        </div>
+
+        <div id="page7" style="display:none;">
+            <h1>HAHAHA</h1>
+            <h1>canda-canda</h1>
+            <img src="8-10kambinggoyang.gif">
+            <br><br>
+            <button onclick="nextPage('page7','page8')">hm</button>
+        </div>
+
+        <div id="page8" style="display:none;">
+            <h1>kalau serius, ke KUA</h1>
+            <img src="9beliau.jpeg">
+            <br><br>
+            <button onclick="nextPage('page8','page9')">beliau ini</button>
+        </div>
+
+        <div id="page9" style="display:none;">
+            <h1>HAHAHA</h1>
+            <h1>canda part 2</h1>
+            <img src="8-10kambinggoyang.gif">
+            <br><br>
+            <button onclick="nextPage('page9','page10')">Y</button>
+        </div>
+
+        <div id="page10" style="display:none;">
+            <h1>wait~</h1>
+            <h1>saya hipnotis dulu</h1>
+            <img src="11pusing-pusing.gif">
+            <br><br>
+            <button onclick="nextPage('page10','page11')">oke</button>
+        </div>
+
+        <div id="page11" style="display:none;">
+            <h1>loading • • • </h1>
+            <img src="12loading.jpeg">
+            <br><br>
+            <button onclick="nextPage('page11','page12')">jadi gimana..</button>
+        </div>
+
+        <div id="page12" style="display:none;">
+            <h1>TERDETEKSI ANDA KEPO </h1>
+            <img src="13gugukkepo.jpg">
+            <br><br>
+            <button onclick="nextPage('page12','page13')">ehehe</button>
+        </div>
+
+        <div id="page13" style="display:none;">
+            <h1>dasar anda ini ya 😾💢⁉️ </h1>
+            <img src="14meme lapor.jpg">
+            <br><br>
+            <button onclick="nextPage('page13','page14')">pun10</button>
+        </div>
+
+        <div id="page14" style="display:none;">
+            <h1>kalau pengen tahu tuh</h1>
+            <h1>ngasih tahu biar tahu</h1>
+            <img src="15ngasih tahu.jpg">
+            <br><br>
+            <button onclick="nextPage('page14','page15')">siap salah</button>
+        </div>
+
+        <div id="page15" style="display:none;">
+            <h1>stalking tidak membuatmu memilikinya</h1>
+            <img src="16faktaseterangini.jpg">
+            <br><br>
+            <button onclick="nextPage('page15','page16')">anjay</button>
+        </div>
+
+        <div id="page16" style="display:none;">
+            <h1>tapi dirimu masih stalking 🤭</h1>
+            <img src="17menangishehe.gif">
+            <br><br>
+            <button onclick="nextPage('page16','page17')">ckptw</button>
+        </div>
+
+        <div id="page17" style="display:none;">
+            <h1>HAHAHA bercanda lagi</h1>
+            <img src="18meringis.gif">
+            <br><br>
+            <button onclick="nextPage('page17','page18')">y</button>
+        </div>
+
+        <div id="page18" style="display:none;">
+            <h1>emmm... terlepas dari apapun itu</h1>
+            <h1>jadilah orang baik yaaa </h1>
+            <img src="19patkepala.jpg">
+            <br><br>
+            <button onclick="nextPage('page18','page19')">baik yang mulia</button>
+        </div>
+
+        <div id="page19" style="display:none;">
+            <h1>kalau ga bisa jadi orang baik, jadilah orang gila</h1>
+            <img src="20terlambat-gila.jpg">
+            <br><br>
+            <button onclick="nextPage('page19','page20')">:)</button>
+        </div>
+
+        <div id="page20" style="display:none;">
+            <h1>jadi, kalau penasaran sesuatu</h1>
+            <h1>atau ada yang mau diomongin</h1>
+            <h1>omongin aja~</h1>
+            <img src="21kasihroti.jpg">
+            <br><br>
+            <button onclick="nextPage('page20','page21')">lanjut ~</button>
+        </div>
+
+        <div id="page21" style="display:none;">
+            <h1>jadi kek</h1>
+           <h1>tanya wae lah WEEE 😾</h1>
+            <img src="22tamparbabi.gif">
+            <br><br>
+            <button onclick="nextPage('page21','page22')">siapp</button>
+        </div>
+
+        <div id="page22" style="display:none;">
+            <h1>malu bertanya, sesat dijalan</h1>
+            <img src="23absolute.jpg">
+            <br><br>
+            <button onclick="nextPage('page22','page23')">kelas</button>
+        </div>
+
+        <div id="page23" style="display:none;">
+            <h1>dah—  jan kepo-kepo lagi</h1>
+            <img src="24tamparan.gif">
+            <br><br>
+            <button onclick="nextPage('page23','page24')">oke</button>
+        </div>
+
+        <div id="page24" style="display:none;">
+            <img src="25bye.gif">
+            <br><br>
+            <button onclick="keluar()">bye juga</button>
+        </div>
+    </div>
 </div>
-
-<div id="page2" style="display:none;">
-<h1>stalking boleh, tapi jangan jatuh cinta</h1>
-<img src="https://i.pinimg.com/736x/31/b1/b0/31b1b05e548d0a2ad0c4e1bd8c14ddab.jpg">
-<br><br>
-<button onclick="nextPage('page2','page3')">Next</button>
-</div>
-
-<div id="page3" style="display:none;">
-<h1>jadi apa yang membuat kisanak penasaran?</h1>
-<img src="https://i.pinimg.com/736x/cf/8f/85/cf8f85e8ca658be9687a3b12df87f534.jpg">
-<br><br>
-<button onclick="nextPage('page3','page4')">Next</button>
-</div>
-
-<div id="page4" style="display:none;">
-<h1>cari apa woii?</h1>
-<img src="https://i.pinimg.com/originals/d1/ad/b3/d1adb3747084e1169073cbdf271a6d24.gif">
-<br><br>
-<button onclick="nextPage('page4','page5')">Next</button>
-</div>
-
-<div id="page5" style="display:none;">
-<h1>jangan cari duit disini ya..</h1>
-<h1>kamu bukan pengemis🥹</h1>
-<img src="https://i.pinimg.com/originals/94/3d/bc/943dbc9e09d64a020a1d048dc3d592f1.gif">
-<br><br>
-<button onclick="nextPage('page5','page6')">Next</button>
-</div>
-
-<div id="page6" style="display:none;">
-<h1>tapi kalau anda ada duit</h1>
-<h1>boleh kok bagi-bagi</h1>
-<img src="https://i.pinimg.com/originals/56/13/2a/56132a28615829b280e6d64b39867d4b.gif">
-<br><br>
-<button onclick="nextPage('page6','page7')">Next</button>
-</div>
-
-<div id="page7" style="display:none;">
-<h1>HAHAHA</h1>
-<h1>bercanda kok</h1>
-<img src="https://i.pinimg.com/originals/a8/2e/20/a82e2018a7851ba8600bef9027f22cac.gif">
-<br><br>
-<button onclick="nextPage('page7','page8')">Next</button>
-</div>
-
-<div id="page8" style="display:none;">
-<h1>kalau serius, ke KUA</h1>
-<img src="https://i.pinimg.com/736x/1e/09/43/1e0943317d595fb529653a108170940f.jpg">
-<br><br>
-<button onclick="nextPage('page8','page9')">Next</button>
-</div>
-
-<div id="page9" style="display:none;">
-<h1>HAHAHA</h1>
-<h1>canda part 2</h1>
-<img src="https://i.pinimg.com/originals/a8/2e/20/a82e2018a7851ba8600bef9027f22cac.gif">
-<br><br>
-<button onclick="nextPage('page9','page10')">Next</button>
-</div>
-
-<div id="page10" style="display:none;">
-<h1>anda saya hipnotis dulu ya..</h1>
-<img src="https://i.pinimg.com/originals/dd/f8/b4/ddf8b4fd4f023dcdbf46cfb52aef1b78.gif">
-<br><br>
-<button onclick="nextPage('page10','page11')">Next</button>
-</div>
-
-<div id="page11" style="display:none;">
-<h1>loading...</h1>
-<img src="https://i.pinimg.com/originals/8f/7a/28/8f7a28e62f8242b264c8a39ba8bea261.gif">
-<br><br>
-<button onclick="nextPage('page11','page12')">Next</button>
-</div>
-
-<div id="page12" style="display:none;">
-<h1>terdeteksi anda kepo</h1>
-<img src="https://i.pinimg.com/736x/47/64/90/4764903573c740bba910f842c3c72d46.jpg">
-<br><br>
-<button onclick="nextPage('page12','page13')">Next</button>
-</div>
-
-<div id="page13" style="display:none;">
-<h1>huh dasar anda ini ya</h1>
-<img src="https://i.pinimg.com/736x/c6/6b/ac/c66bac3ffd4ef47defb55069aa17f630.jpg">
-<br><br>
-<button onclick="nextPage('page13','page14')">Next</button>
-</div>
-
-<div id="page14" style="display:none;">
-<h1>kalau pengen tahu tuh ngasih tahu biar tahu</h1>
-<img src="https://i.pinimg.com/736x/1a/82/8a/1a828a94320042bb3b6b5e64ccebf6fb.jpg">
-<br><br>
-<button onclick="nextPage('page14','page15')">Next</button>
-</div>
-
-<div id="page15" style="display:none;">
-<h1>stalking tidak membuatmu memilikinya</h1>
-<img src="https://i.pinimg.com/736x/76/b6/4a/76b64a463575eb5b1034d9a70a920d68.jpg">
-<br><br>
-<button onclick="nextPage('page15','page16')">Next</button>
-</div>
-
-<div id="page16" style="display:none;">
-<h1>tapi kau masih stalking aja</h1>
-<img src="https://i.pinimg.com/originals/fb/0e/a2/fb0ea2d516788e45e4b3f31436cf3a1d.gif">
-<br><br>
-<button onclick="nextPage('page16','page17')">Next</button>
-</div>
-
-<div id="page17" style="display:none;">
-<h1>HAHAHA bercanda lagi</h1>
-<img src="https://i.pinimg.com/originals/46/ea/79/46ea7962a8ff13b52139e5ef05580d01.gif">
-<br><br>
-<button onclick="nextPage('page17','page18')">Next</button>
-</div>
-
-<div id="page18" style="display:none;">
-<h1>emmm... terlepas dari apapun itu jadilah orang baik ya</h1>
-<img src="https://i.pinimg.com/736x/f1/b9/9b/f1b99bb8fbd3821e69fd8206c59c679a.jpg">
-<br><br>
-<button onclick="nextPage('page18','page19')">Next</button>
-</div>
-
-<div id="page19" style="display:none;">
-<h1>kalau ga bisa jadi orang baik, jadilah orang gila</h1>
-<img src="https://i.pinimg.com/736x/e4/24/ed/e424ed280334f628d2396ba9cf5dc64e.jpg">
-<br><br>
-<button onclick="nextPage('page19','page20')">Next</button>
-</div>
-
-
-<div id="page20" style="display:none;">
-<h1>jadi kalau penasaran apa..</h1>
-<h1>atau ada yang ganjal mau diomongin..</h1>
-<h1>omongin aja</h1>
-<img src="https://i.pinimg.com/736x/9e/ce/80/9ece804f1d7da7f8ed5af326a2f30bcd.jpg">
-<br><br>
-<button onclick="nextPage('page20','page21')">Next</button>
-</div>
-
-<div id="page21" style="display:none;">
-<h1>jadi kek tanya wae lah cuy</h1>
-<img src="https://i.pinimg.com/originals/6d/5b/96/6d5b96c9ec7abef351224a31a6850ad5.gif">
-<br><br>
-<button onclick="nextPage('page21','page22')">Next</button>
-</div>
-
-<div id="page22" style="display:none;">
-<h1>malu bertanya sesat dijalan</h1>
-<img src="https://i.pinimg.com/736x/8f/c0/aa/8fc0aa724af4738fc5c9e7d33e91e16d.jpg">
-<br><br>
-<button onclick="nextPage('page22','page23')">Next</button>
-</div>
-
-<div id="page23" style="display:none;">
-<h1>dah jan kepo-kepo lagi</h1>
-<img src="https://i.pinimg.com/originals/44/ad/d7/44add73502b0eb2f9ae39956ff25705c.gif">
-<br><br>
-<button onclick="nextPage('page23','page24')">Next</button>
-</div>
-
-<div id="page24" style="display:none;">
-<img src="https://i.pinimg.com/originals/d5/9c/4a/d59c4a5e924357787efa2cd7b324f095.gif">
-<br><br>
-<button onclick="keluar()">bye juga</button>
-</div>
-
-</div>
-
-</div>
-
-
 
 <script>
-
 let yesSize = 20;
 
-function noAnswer(){
+function noAnswer() {
+    yesSize += 5;
+    document.getElementById("yesBtn").style.fontSize = yesSize + "px";
 
-/* YES makin besar */
+    let noBtn = document.getElementById("noBtn");
+    let gameArea = document.getElementById("gameArea");
+    
+    noBtn.style.position = "absolute";
+    let bounds = gameArea.getBoundingClientRect();
+    
+    let x = Math.random() * (bounds.width - 120);
+    let y = Math.random() * (bounds.height - 80);
 
-yesSize += 5;
-document.getElementById("yesBtn").style.fontSize = yesSize + "px";
-
-/* NO mulai kabur */
-
-let noBtn = document.getElementById("noBtn");
-
-noBtn.style.position = "absolute";
-
-let x = Math.random() * (window.innerWidth - 150);
-let y = Math.random() * (window.innerHeight - 150);
-
-noBtn.style.left = x + "px";
-noBtn.style.top = y + "px";
-
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
 }
 
-function yesAnswer(){
-
-document.getElementById("popup").style.display = "flex";
-
-}
-function nextPage(current, next){
-document.getElementById(current).style.display="none";
-document.getElementById(next).style.display="block";
+function yesAnswer() {
+    document.getElementById("popup").style.display = "flex";
+    document.getElementById("gameArea").style.opacity = "0"; 
+    document.getElementById("page1").style.display = "block";
 }
 
-function keluar(){
-window.close();
+function nextPage(current, next) {
+    document.getElementById(current).style.display = "none";
+    document.getElementById(next).style.display = "block";
 }
 
+function keluar() {
+    window.close();
+    setTimeout(function() {
+        window.location.href = "about:blank";
+    }, 100);
+}
 </script>
 
 </body>
